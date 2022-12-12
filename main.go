@@ -14,65 +14,90 @@ func main() {
 	// return result fmt.println
 	// semua harus di loop
 
-	var angka1 string
-	var angka2 string
-	var operator string
+	for {
+		var angka1 string
+		var angka2 string
+		var operator string
 
-	fmt.Println("masukkan angka pertama: ")
-	fmt.Scanln(&angka1)
+		fmt.Println("masukkan angka pertama: ")
+		fmt.Scanln(&angka1)
 
-	fmt.Println("masukkan angka kedua: ")
-	fmt.Scanln(&angka2)
+		fmt.Println("masukkan angka kedua: ")
+		fmt.Scanln(&angka2)
 
-	fmt.Println("masukkan operator: ")
-	fmt.Scanln(&operator)
+		fmt.Println("masukkan operator: ")
+		fmt.Scanln(&operator)
 
-	switch operator {
-	case "+":
-		angkaSatu, err := strconv.Atoi(angka1)
-		if err != nil { //if error is not non exist
-			log.Println(err)
-			return
+		switch operator {
+		case "+":
+			angkaSatu, err := strconv.Atoi(angka1)
+			if err != nil { //if error is not non exist
+				log.Println(err)
+				return
+			}
+
+			angkaDua, err := strconv.Atoi(angka2)
+			if err != nil { //if error is not non exist
+				log.Println(err)
+				return
+			}
+			fmt.Println(add(angkaSatu, angkaDua))
+
+		case "-":
+			angkaSatu, err := strconv.Atoi(angka1)
+			if err != nil { //if error is not non exist
+				log.Println(err)
+				return
+			}
+
+			angkaDua, err := strconv.Atoi(angka2)
+			if err != nil { //if error is not non exist
+				log.Println(err)
+				return
+			}
+			fmt.Println(substract(angkaSatu, angkaDua))
+		case "%":
+			angkaSatu, err := strconv.Atoi(angka1)
+			if err != nil { //if error is not non exist
+				log.Println(err)
+				return
+			}
+
+			angkaDua, err := strconv.Atoi(angka2)
+			if err != nil { //if error is not non exist
+				log.Println(err)
+				return
+			}
+			fmt.Println(modulus(angkaSatu, angkaDua))
+
+		case "/":
+			angkaSatu, err := strconv.ParseFloat(angka1, 64)
+			if err != nil { //if error is not non exist
+				log.Println(err)
+				return
+			}
+
+			angkaDua, err := strconv.ParseFloat(angka2, 64)
+			if err != nil { //if error is not non exist
+				log.Println(err)
+				return
+			}
+			fmt.Println(divide(angkaSatu, angkaDua))
+
+		case "*":
+			angkaSatu, err := strconv.ParseFloat(angka1, 64)
+			if err != nil { //if error is not non exist
+				log.Println(err)
+				return
+			}
+
+			angkaDua, err := strconv.ParseFloat(angka2, 64)
+			if err != nil { //if error is not non exist
+				log.Println(err)
+				return
+			}
+			fmt.Println(multiply(angkaSatu, angkaDua))
 		}
-
-		angkaDua, err := strconv.Atoi(angka2)
-		if err != nil { //if error is not non exist
-			log.Println(err)
-			return
-		}
-		fmt.Println(add(angkaSatu, angkaDua))
-
-	case "-":
-		angkaSatu, err := strconv.Atoi(angka1)
-		if err != nil { //if error is not non exist
-			log.Println(err)
-			return
-		}
-
-		angkaDua, err := strconv.Atoi(angka2)
-		if err != nil { //if error is not non exist
-			log.Println(err)
-			return
-		}
-		fmt.Println(substract(angkaSatu, angkaDua))
-	case "%":
-		angkaSatu, err := strconv.Atoi(angka1)
-		if err != nil { //if error is not non exist
-			log.Println(err)
-			return
-		}
-
-		angkaDua, err := strconv.Atoi(angka2)
-		if err != nil { //if error is not non exist
-			log.Println(err)
-			return
-		}
-		fmt.Println(modulus(angkaSatu, angkaDua))
-
-	case "/":
-		fmt.Println("divide")
-	case "*":
-		fmt.Println("multiply")
 	}
 }
 
